@@ -224,7 +224,7 @@ class battleship():
         elif ship_type == "c":
             return self.add_aircraft_carrier()
 
-    def output_board_layout(self, output_file="battleship.json"):
+    def output_board_layout(self, output_file="battleship.json", add_to_key="_in_book"):
         """
         :parameter
             output_file
@@ -232,8 +232,11 @@ class battleship():
                 default is battleship.json
         :return: dict formatted to json
         """
-        from datetime import date
-        key = str(date.today())
+        from datetime import datetime
+        dt = datetime.today()
+        key = f"{str(dt.month)}-{str(dt.day)}-{str(dt.year)[2:]}_{str(dt.hour)}:{str(dt.minute)}"
+        if add_to_key:
+            key = key + add_to_key
         new_battleship_grid = dict()
         new_battleship_grid[key] = self.battleship_grid
 
@@ -281,11 +284,11 @@ def input_game() -> object:
 
 b1 = battleship()
 # b1.add_ships(coordinates=(Letter,  Number, Direction), ship_type=Ship_type)
-b1.add_ships(coordinates=("j", "1", "s"), ship_type="p")
-b1.add_ships(coordinates=("j", "2", "s"), ship_type="s")
-b1.add_ships(coordinates=("j", "3", "s"), ship_type="d")
-b1.add_ships(coordinates=("j", "4", "s"), ship_type="b")
-b1.add_ships(coordinates=("j", "5", "s"), ship_type="c")
+b1.add_ships(coordinates=("a", "1", "e"), ship_type="p")
+b1.add_ships(coordinates=("b", "1", "e"), ship_type="s")
+b1.add_ships(coordinates=("c", "1", "e"), ship_type="d")
+b1.add_ships(coordinates=("d", "1", "e"), ship_type="b")
+b1.add_ships(coordinates=("e", "1", "e"), ship_type="c")
 
 p = b1.output_board_layout()
 
