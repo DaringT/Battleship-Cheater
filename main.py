@@ -1,6 +1,6 @@
 import json
 import pprint
-
+import os
 
 class battleship():
     a_to_j = ("a", "b", "c", "d", "e", "g", "h", "i", "j")
@@ -248,28 +248,28 @@ class battleship():
                     f.write(json_file_data)
         return json_file_data
 
-    def add_to_file(self, output_file="battleship.json"):
+    def add_to_file(self, input_file="battleship.json"):
         from datetime import datetime
         dt = datetime.today()
-        key = f"{str(dt.month)}-{str(dt.day)}-{str(dt.year)[2:]}_{str(dt.hour)}:{str(dt.minute)}"
+        key = f"{str(dt.month)}-{str(dt.day)}-{str(dt.year)[2:]}_{str(dt.hour)}:{str(dt.minute)}.{str(dt.second)}"
 
         new_battleship_grid = dict()
         new_battleship_grid[key] = self.battleship_grid
 
-        with open(output_file, "r") as f:
-            existing_json_data = json.load(f)
+        if os.stat(input_file).st_size != 0:
+            print("file Not Empty")
+            with open(input_file) as f:
+                existing_json_data = json.load(f)
 
-        print("existing_json_data:" ,type(existing_json_data))
-        pprint.pprint(existing_json_data)
+            existing_json_data.update(new_battleship_grid)
+            print("\n"*3)
+            pprint.pprint(existing_json_data)
 
-        print("\n"*3)
-        existing_json_data.update(new_battleship_grid)
+            json_file_data = json.dumps(existing_json_data)
+        else:
+            json_file_data = json.dumps(new_battleship_grid)
 
-        print("existing_json_data:" ,type(existing_json_data))
-        pprint.pprint(existing_json_data)
-
-        json_file_data = json.dumps(existing_json_data)
-        with open(output_file, "w") as f:
+        with open(input_file, "w") as f:
             # json.dump(json_file_data, f)
             f.write(json_file_data)
         return json_file_data
@@ -317,8 +317,8 @@ b1.add_ships(coordinates=("c", "1", "e"), ship_type="d")
 b1.add_ships(coordinates=("d", "1", "e"), ship_type="b")
 b1.add_ships(coordinates=("e", "1", "e"), ship_type="c")
 
-p = b1.output_board_layout()
-# p = b1.add_to_file()
+# p = b1.output_board_layout()
+p = b1.add_to_file()
 
 # print("reading file...\n")
 # read_board_layout()
