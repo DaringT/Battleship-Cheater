@@ -119,96 +119,25 @@
     c:d10s
 
 //b8
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:h1
+    s:i6e
+    d:h5e
+    b:f6e
+    c:b10s
 
 //b9
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:e3e
+    s:g3s
+    d:b10s
+    b:a5e
+    c:c7s
 
 //b10
-    p:
-    s:
-    d:
-    b:
-    c:
-
-
-//b1
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b2
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b3
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b4
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b5
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b6
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b7
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b8
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b9
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//b10
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:b9e
+    s:a2e
+    d:e1s
+    b:h4e
+    c:b3s
 
 
 //c1
@@ -778,73 +707,3 @@
     b:
     c:
 
-
-//e1
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e2
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e3
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e4
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e5
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e6
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e7
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e8
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e9
-    p:
-    s:
-    d:
-    b:
-    c:
-
-//e10
-    p:
-    s:
-    d:
-    b:
-    c:
