@@ -224,7 +224,7 @@ class battleship():
         elif ship_type == "c":
             return self.add_aircraft_carrier()
 
-    def output_board_layout(self, output_file="battleship.json", add_to_key="_in_book"):
+    def output_board_layout(self, input_file="battleship.json", add_to_key="_in_book"):
         """
         :parameter
             output_file
@@ -234,29 +234,14 @@ class battleship():
         """
         from datetime import datetime
         dt = datetime.today()
-        key = f"{str(dt.month)}-{str(dt.day)}-{str(dt.year)[2:]}_{str(dt.hour)}:{str(dt.minute)}"
-        if add_to_key:
-            key = key + add_to_key
-        new_battleship_grid = dict()
-        new_battleship_grid[key] = self.battleship_grid
-
-        json_file_data = json.dumps(new_battleship_grid)
-        if output_file:
-            if output_file != None:
-                with open(output_file, "a") as f:
-                    f.write(",")
-                    f.write(json_file_data)
-        return json_file_data
-
-    def add_to_file(self, input_file="battleship.json"):
-        from datetime import datetime
-        dt = datetime.today()
         key = f"{str(dt.month)}-{str(dt.day)}-{str(dt.year)[2:]}_{str(dt.hour)}:{str(dt.minute)}.{str(dt.second)}"
+        key = key + add_to_key
 
         new_battleship_grid = dict()
         new_battleship_grid[key] = self.battleship_grid
 
-        if os.stat(input_file).st_size != 0:
+        if os.stat(input_file).st_size < 2:
+            print(os.stat(input_file).st_size)
             print("file Not Empty")
             with open(input_file) as f:
                 existing_json_data = json.load(f)
@@ -270,7 +255,7 @@ class battleship():
             json_file_data = json.dumps(new_battleship_grid)
 
         with open(input_file, "w") as f:
-            # json.dump(json_file_data, f)
+            # json.dump(json_file_+data, f)
             f.write(json_file_data)
         return json_file_data
 
@@ -288,44 +273,52 @@ def read_board_layout(input_file="battleship.json"):
 
 def input_game() -> object:
     '''adds ships to the Battleship board'''
+    b1 = battleship()
     while True:
         ship_type = input("input Ship Type --> ")
         if ship_type == "exit":
             exit()
+        else:
+            letter = input("Add Letter --> ")
+            number = input("Add Number --> ")
+            direction = input("Add Direction   --> ")
+            if direction in {int, float}:
+                print("The Direction is not a number")
+                direction = input("Add Direction   --> ")
 
-        letter = input("Add Letter --> ")
-        number = input("Add Number --> ")
-        direction = input("Add Direction   --> ")
-        print(f"letter: {letter}\tnumber:{number}\tdirection: {direction}\tship_type: {ship_type}")
-
-        b1 = battleship()
-        p = b1.add_ships(coordinates=(letter, number, direction), ship_type=ship_type)
-        print("\n" * 2)
-        pprint.pprint(p)
-        print("\n" * 2)
+            print(f"letter: {letter}\tnumber:{number}\tdirection: {direction}\tinput: {ship_type}")
+        out_to_file = input("Output to file? --> ")
+        if out_to_file == "y":
+            print("outputing to file...")
+            b1.output_board_layout()
+            b1 = battleship()
+        elif out_to_file == "n":
+            b1.add_ships(coordinates=(letter, number, direction), ship_type=ship_type)
+            # print("\n" * 2)
+            # pprint.pprint(p)
 
 # Letter = "c"
 # Number = "2"
 # Direction = "s"
 # Ship_type = "p"
 
-b1 = battleship()
+# b1 = battleship()
 # b1.add_ships(coordinates=(Letter,  Number, Direction), ship_type=Ship_type)
-b1.add_ships(coordinates=("a", "1", "e"), ship_type="p")
-b1.add_ships(coordinates=("b", "1", "e"), ship_type="s")
-b1.add_ships(coordinates=("c", "1", "e"), ship_type="d")
-b1.add_ships(coordinates=("d", "1", "e"), ship_type="b")
-b1.add_ships(coordinates=("e", "1", "e"), ship_type="c")
+# b1.add_ships(coordinates=("a", "1", "e"), ship_type="p")
+# b1.add_ships(coordinates=("b", "1", "e"), ship_type="s")
+# b1.add_ships(coordinates=("c", "1", "e"), ship_type="d")
+# b1.add_ships(coordinates=("d", "1", "e"), ship_type="b")
+# b1.add_ships(coordinates=("e", "1", "e"), ship_type="c")
 
 # p = b1.output_board_layout()
-p = b1.add_to_file()
 
 # print("reading file...\n")
 # read_board_layout()
 
+input_game()
 
-print("output board...\n")
-pprint.pprint(p)
+# print("output board...\n")
+# pprint.pprint(p)
 
 # "b":[0,0,0,0,0,0,0,0,0,0],
 # "c":[0,0,0,0,0,0,0,0,0,0],

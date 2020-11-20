@@ -1,0 +1,850 @@
+//a1
+    p: h10n
+    s: b4e
+    d: i2e
+    p: e5e
+    c: g4e
+
+//a2
+    p: g7e
+    s: j5e
+    d: h10n
+    b: e5n
+    c: f1n
+
+//a3
+    p:d1s
+    s:a3e
+    d:c1n
+    b:h10n
+    c:i7n
+
+//a4
+    p:g2s
+    s:j3n
+    d:i7n
+    b:f3e
+    c:d2e
+
+//a5
+    p:j5n
+    s:c7e
+    d:j3n
+    b:d4e
+    c:b5e
+
+//a6
+    p:j7
+    s:h2e
+    d:c7n
+    b:f9s
+    c:d5e
+
+//a7
+    p:g10s
+    s:d6n
+    d:d7e
+    b:i8n
+    c:j3e
+
+//a8
+    p:i7e
+    s:e2e
+    d:j3e
+    b:c7e
+    c:j3e
+
+//a9
+    p:f7s
+    s:b8e
+    d:g1n
+    b:g2e
+    c:e2n
+
+//a10
+    p:i8n
+    s:c1s
+    d:d8e
+    b:b6s
+    c:g3e
+
+
+//b1
+    p:c2n
+    s:g5e
+    d:h8n
+    b:j3e
+    c:e5e
+
+//b2
+    p:i10n
+    s:g10n
+    d:f1e
+    b:c7s
+    c:d4s
+
+//b3
+    p:f9s
+    s:c10
+    d:j8e
+    b:f7s
+    c:c3e
+
+//b4
+    p:g6s
+    s:b10s
+    d:e2e
+    b:c3e
+    c:i5e
+
+//b5
+    p:a5e
+    s:a9s
+    d:f4e
+    b:e10s
+    c:d8s
+
+//b6
+    p:b7s
+    s:f8e
+    d:i5e
+    b:a10s
+    c:a2s
+
+//b7
+    p:e5n
+    s:b7s
+    d:h5e
+    b:a3e
+    c:d10s
+
+//b8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//b1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//b10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//c1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//c10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//d1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//d10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//e1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//f1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//f10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//g1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//g10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//h1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//h10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//i1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//i10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//j1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//j10
+    p:
+    s:
+    d:
+    b:
+    c:
+
+
+//e1
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e2
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e3
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e4
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e5
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e6
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e7
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e8
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e9
+    p:
+    s:
+    d:
+    b:
+    c:
+
+//e10
+    p:
+    s:
+    d:
+    b:
+    c:
