@@ -283,39 +283,39 @@
 
 
 //e1
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:e5s
+    s:i5e
+    d:h1e
+    b:e9s
+    c:b3e
 
 //e2
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:g3e
+    s:f1e
+    d:h3e
+    b:f7s
+    c:a2e
 
 //e3
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:f1e
+    s:a2e
+    d:g4e
+    b:c7e
+    c:f3s
 
 //e4
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:c4s
+    s:g8e
+    d:j4e
+    b:e4e
+    c:f1s
 
 //e5
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:j4e
+    s:g1e
+    d:i1e
+    b:h4e
+    c:d5e
 
 //e6
     p:
