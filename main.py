@@ -241,7 +241,7 @@ class battleship():
         new_battleship_grid = dict()
         new_battleship_grid[key] = self.battleship_grid
 
-        if os.stat(input_file).st_size < 2:
+        if os.stat(input_file).st_size != 0:
             print(os.stat(input_file).st_size)
             print("file Not Empty")
             with open(input_file) as f:
