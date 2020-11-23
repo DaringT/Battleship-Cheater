@@ -531,110 +531,110 @@
     c:j5e
 
 //h6
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:c10s
+    s:f7s
+    d:c5e
+    b:d6e
+    c:d4s
 
 //h7
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:h4n
+    s:e2e
+    d:c7n
+    b:j7n
+    c:i8n
 
 //h8
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:g6n
+    s:h6s
+    d:e4e
+    b:a1s
+    c:a5e
 
 //h9
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:a1e
+    s:c9s
+    d:i1e
+    b:a8s
+    c:b7s
 
 //h10
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:c9e
+    s:a8s
+    d:d9s
+    b:f5s
+    c:c4s
 
 
 //i1
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:i4e
+    s:e8e
+    d:e4n
+    b:e3s
+    c:h5e
 
 //i2
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:e8e
+    s:h3n
+    d:h10n
+    b:h5e
+    c:j1e
 
 //i3
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:h10n
+    s:e6e
+    d:f1e
+    b:b10s
+    c:i5e
 
 //i4
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:b3s
+    s:f10s
+    d:i6e
+    b:f9s
+    c:c4e
 
 //i5
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:h5e
+    s:i4e
+    d:h4n
+    b:c2e
+    c:e5e
 
 //i6
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:d6n
+    s:j5n
+    d:i10n
+    b:i6n
+    c:j3n
 
 //i7
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:g10n
+    s:j5e
+    d:i3e
+    b:a3e
+    c:h5e
 
 //i8
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:d1e
+    s:f3s
+    d:b5e
+    b:g7e
+    c:i3e
 
 //i9
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:b4n
+    s:h5n
+    d:h9n
+    b:j3n
+    c:i5e
 
 //i10
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:d6e
+    s:f8e
+    d:g8e
+    b:b7e
+    c:a4e
 
 
 //j1
