@@ -22,207 +22,208 @@ class battleship():
                 "h": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 "i": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 "j": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+    class add_ships():
+        def add_patrol_boat(self):
 
-    def add_patrol_boat(self):
-        """
-        Adds a patrol boat as int 1 in BS grid
-        :return: battleship_grid
-        """
-        try:
-            if self.direction == "s":
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 1
-                self.battleship_grid[self.letter][self.number] = 1
+            """
+            Adds a patrol boat as int 1 in BS grid
+            :return: battleship_grid
+            """
+            try:
+                if self.direction == "s":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 1
+                    self.battleship_grid[self.letter][self.number] = 1
+                    return self.battleship_grid
+
+                elif self.direction == "n":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 1
+                    self.battleship_grid[self.letter][self.number] = 1
+                    return self.battleship_grid
+
+                elif self.direction == "e":
+                    self.battleship_grid[self.letter][self.number + 1] = 1
+                    self.battleship_grid[self.letter][self.number] = 1
+                    return self.battleship_grid
+                elif self.direction == "w":
+                    self.battleship_grid[self.letter][self.number - 1] = 1
+                    self.battleship_grid[self.letter][self.number] = 1
+                    return self.battleship_grid
+            except IndexError:
+                print("You cann't add a patrol boat there.")
+                self.battleship_grid
+
+        def add_submairie(self):
+            """
+            Adds a submairie as int 2 in BS grid
+            :return: battleship_grid
+            """
+            try:
+                if self.direction == "s":
+                    # This is what happens you go South
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 2
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 2
+                    self.battleship_grid[self.letter][self.number] = 2
+                    return self.battleship_grid
+
+                elif self.direction == "n":
+                    # This is what happens you go North
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 2
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 2
+                    self.battleship_grid[self.letter][self.number] = 2
+                    return self.battleship_grid
+
+                elif self.direction == "e":
+                    # This is what happens you go East
+                    self.battleship_grid[self.letter][self.number + 1] = 2
+                    self.battleship_grid[self.letter][self.number + 2] = 2
+                    self.battleship_grid[self.letter][self.number] = 2
+                    return self.battleship_grid
+
+                elif self.direction == "w":
+                    # This is what happens you go West
+                    self.battleship_grid[self.letter][self.number - 1] = 2
+                    self.battleship_grid[self.letter][self.number - 2] = 2
+                    self.battleship_grid[self.letter][self.number] = 2
+                    return self.battleship_grid
+            except IndexError:
+                print("You cann't add a Submairie there.")
+                self.battleship_grid
+
+        def add_destroyer(self):
+            """
+            Adds a destroyer as int 3 in BS grid
+            :return: battleship_grid
+            """
+            try:
+                if self.direction == "s":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 3
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 3
+                    self.battleship_grid[self.letter][self.number] = 3
+                    return self.battleship_grid
+                elif self.direction == "n":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 3
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 3
+                    self.battleship_grid[self.letter][self.number] = 3
+                    return self.battleship_grid
+                elif self.direction == "w":
+                    self.battleship_grid[self.letter][self.number - 2] = 3
+                    self.battleship_grid[self.letter][self.number - 1] = 3
+                    self.battleship_grid[self.letter][self.number] = 3
+                    return self.battleship_grid
+
+                elif self.direction == "e":
+                    self.battleship_grid[self.letter][self.number + 2] = 3
+                    self.battleship_grid[self.letter][self.number + 1] = 3
+                    self.battleship_grid[self.letter][self.number] = 3
+                    return self.battleship_grid
+            except IndexError:
+                print("You can not add a Destroyer there!")
                 return self.battleship_grid
 
-            elif self.direction == "n":
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 1
-                self.battleship_grid[self.letter][self.number] = 1
+        def add_battleship(self):
+            """
+            Adds a battleship as int 4 in BS grid
+            :return: battleship_grid
+            """
+            try:
+                if self.direction == "n":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 4
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 4
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 3]][self.number] = 4
+                    self.battleship_grid[self.letter][self.number] = 4
+                    return self.battleship_grid
+
+                if self.direction == "s":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 4
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 4
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 3]][self.number] = 4
+                    self.battleship_grid[self.letter][self.number] = 4
+                    return self.battleship_grid
+
+                elif self.direction == "e":
+                    self.battleship_grid[self.letter][self.number + 1] = 4
+                    self.battleship_grid[self.letter][self.number + 2] = 4
+                    self.battleship_grid[self.letter][self.number + 3] = 4
+                    self.battleship_grid[self.letter][self.number] = 4
+                    return self.battleship_grid
+
+                elif self.direction == "w":
+                    self.battleship_grid[self.letter][self.number - 1] = 4
+                    self.battleship_grid[self.letter][self.number - 2] = 4
+                    self.battleship_grid[self.letter][self.number - 3] = 4
+                    self.battleship_grid[self.letter][self.number] = 4
+            except IndexError:
+                print("You can not add a Battleship there!")
                 return self.battleship_grid
 
-            elif self.direction == "e":
-                self.battleship_grid[self.letter][self.number + 1] = 1
-                self.battleship_grid[self.letter][self.number] = 1
-                return self.battleship_grid
-            elif self.direction == "w":
-                self.battleship_grid[self.letter][self.number - 1] = 1
-                self.battleship_grid[self.letter][self.number] = 1
-                return self.battleship_grid
-        except IndexError:
-            print("You cann't add a patrol boat there.")
-            self.battleship_grid
+        def add_aircraft_carrier(self):
+            """
+            Adds a aircraft carrier as int 5 in BS grid
+            :return: battleship_grid
+            """
+            try:
+                if self.direction == "n":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 5
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 5
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 3]][self.number] = 5
+                    self.battleship_grid[battleship.a_to_j[self.letters_index - 4]][self.number] = 5
+                    self.battleship_grid[self.letter][self.number] = 5
+                    return self.battleship_grid
 
-    def add_submairie(self):
-        """
-        Adds a submairie as int 2 in BS grid
-        :return: battleship_grid
-        """
-        try:
-            if self.direction == "s":
-                # This is what happens you go South
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 2
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 2
-                self.battleship_grid[self.letter][self.number] = 2
-                return self.battleship_grid
+                elif self.direction == "s":
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 5
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 5
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 3]][self.number] = 5
+                    self.battleship_grid[battleship.a_to_j[self.letters_index + 4]][self.number] = 5
+                    self.battleship_grid[self.letter][self.number] = 5
+                    return self.battleship_grid
 
-            elif self.direction == "n":
-                # This is what happens you go North
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 2
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 2
-                self.battleship_grid[self.letter][self.number] = 2
-                return self.battleship_grid
+                elif self.direction == "e":
+                    self.battleship_grid[self.letter][self.number + 1] = 5
+                    self.battleship_grid[self.letter][self.number + 2] = 5
+                    self.battleship_grid[self.letter][self.number + 3] = 5
+                    self.battleship_grid[self.letter][self.number + 4] = 5
+                    self.battleship_grid[self.letter][self.number] = 5
+                    return self.battleship_grid
 
-            elif self.direction == "e":
-                # This is what happens you go East
-                self.battleship_grid[self.letter][self.number + 1] = 2
-                self.battleship_grid[self.letter][self.number + 2] = 2
-                self.battleship_grid[self.letter][self.number] = 2
-                return self.battleship_grid
-
-            elif self.direction == "w":
-                # This is what happens you go West
-                self.battleship_grid[self.letter][self.number - 1] = 2
-                self.battleship_grid[self.letter][self.number - 2] = 2
-                self.battleship_grid[self.letter][self.number] = 2
-                return self.battleship_grid
-        except IndexError:
-            print("You cann't add a Submairie there.")
-            self.battleship_grid
-
-    def add_destroyer(self):
-        """
-        Adds a destroyer as int 3 in BS grid
-        :return: battleship_grid
-        """
-        try:
-            if self.direction == "s":
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 3
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 3
-                self.battleship_grid[self.letter][self.number] = 3
-                return self.battleship_grid
-            elif self.direction == "n":
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 3
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 3
-                self.battleship_grid[self.letter][self.number] = 3
-                return self.battleship_grid
-            elif self.direction == "w":
-                self.battleship_grid[self.letter][self.number - 2] = 3
-                self.battleship_grid[self.letter][self.number - 1] = 3
-                self.battleship_grid[self.letter][self.number] = 3
+                elif self.direction == "w":
+                    self.battleship_grid[self.letter][self.number - 1] = 5
+                    self.battleship_grid[self.letter][self.number - 2] = 5
+                    self.battleship_grid[self.letter][self.number - 3] = 5
+                    self.battleship_grid[self.letter][self.number - 4] = 5
+                    self.battleship_grid[self.letter][self.number] = 5
+            except IndexError:
+                print("You can not add a aircraft carrier there!")
                 return self.battleship_grid
 
-            elif self.direction == "e":
-                self.battleship_grid[self.letter][self.number + 2] = 3
-                self.battleship_grid[self.letter][self.number + 1] = 3
-                self.battleship_grid[self.letter][self.number] = 3
-                return self.battleship_grid
-        except IndexError:
-            print("You can not add a Destroyer there!")
-            return self.battleship_grid
+        def add_ships(self, coordinates, ship_type):
+            """
+            add ships to the battleship grid from one function
+            :rtype: object
+            """
+            self.letter, self.number, self.direction = coordinates
 
-    def add_battleship(self):
-        """
-        Adds a battleship as int 4 in BS grid
-        :return: battleship_grid
-        """
-        try:
-            if self.direction == "n":
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 4
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 4
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 3]][self.number] = 4
-                self.battleship_grid[self.letter][self.number] = 4
-                return self.battleship_grid
+            self.letter = self.letter[0].lower()
+            self.direction = self.direction[0].lower()
 
-            if self.direction == "s":
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 4
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 4
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 3]][self.number] = 4
-                self.battleship_grid[self.letter][self.number] = 4
-                return self.battleship_grid
+            # print(f"letter: {self.letter} number:{self.number} direction:{self.direction} ship type: {ship_type}")
+            self.number = int(self.number) - 1
+            self.letters_index = battleship.a_to_j.index(self.letter)
 
-            elif self.direction == "e":
-                self.battleship_grid[self.letter][self.number + 1] = 4
-                self.battleship_grid[self.letter][self.number + 2] = 4
-                self.battleship_grid[self.letter][self.number + 3] = 4
-                self.battleship_grid[self.letter][self.number] = 4
-                return self.battleship_grid
+            if ship_type == "p":
+                return self.add_patrol_boat()
 
-            elif self.direction == "w":
-                self.battleship_grid[self.letter][self.number - 1] = 4
-                self.battleship_grid[self.letter][self.number - 2] = 4
-                self.battleship_grid[self.letter][self.number - 3] = 4
-                self.battleship_grid[self.letter][self.number] = 4
-        except IndexError:
-            print("You can not add a Battleship there!")
-            return self.battleship_grid
+            elif ship_type == "s":
+                return self.add_submairie()
 
-    def add_aircraft_carrier(self):
-        """
-        Adds a aircraft carrier as int 5 in BS grid
-        :return: battleship_grid
-        """
-        try:
-            if self.direction == "n":
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 1]][self.number] = 5
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 2]][self.number] = 5
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 3]][self.number] = 5
-                self.battleship_grid[battleship.a_to_j[self.letters_index - 4]][self.number] = 5
-                self.battleship_grid[self.letter][self.number] = 5
-                return self.battleship_grid
+            elif ship_type == "d":
+                return self.add_destroyer()
 
-            elif self.direction == "s":
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 1]][self.number] = 5
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 2]][self.number] = 5
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 3]][self.number] = 5
-                self.battleship_grid[battleship.a_to_j[self.letters_index + 4]][self.number] = 5
-                self.battleship_grid[self.letter][self.number] = 5
-                return self.battleship_grid
+            elif ship_type == "b":
+                return self.add_battleship()
 
-            elif self.direction == "e":
-                self.battleship_grid[self.letter][self.number + 1] = 5
-                self.battleship_grid[self.letter][self.number + 2] = 5
-                self.battleship_grid[self.letter][self.number + 3] = 5
-                self.battleship_grid[self.letter][self.number + 4] = 5
-                self.battleship_grid[self.letter][self.number] = 5
-                return self.battleship_grid
-
-            elif self.direction == "w":
-                self.battleship_grid[self.letter][self.number - 1] = 5
-                self.battleship_grid[self.letter][self.number - 2] = 5
-                self.battleship_grid[self.letter][self.number - 3] = 5
-                self.battleship_grid[self.letter][self.number - 4] = 5
-                self.battleship_grid[self.letter][self.number] = 5
-        except IndexError:
-            print("You can not add a aircraft carrier there!")
-            return self.battleship_grid
-
-    def add_ships(self, coordinates, ship_type):
-        """
-        add ships to the battleship grid from one function
-        :rtype: object
-        """
-        self.letter, self.number, self.direction = coordinates
-
-        self.letter = self.letter[0].lower()
-        self.direction = self.direction[0].lower()
-
-        # print(f"letter: {self.letter} number:{self.number} direction:{self.direction} ship type: {ship_type}")
-        self.number = int(self.number) - 1
-        self.letters_index = battleship.a_to_j.index(self.letter)
-
-        if ship_type == "p":
-            return self.add_patrol_boat()
-
-        elif ship_type == "s":
-            return self.add_submairie()
-
-        elif ship_type == "d":
-            return self.add_destroyer()
-
-        elif ship_type == "b":
-            return self.add_battleship()
-
-        elif ship_type == "c":
-            return self.add_aircraft_carrier()
+            elif ship_type == "c":
+                return self.add_aircraft_carrier()
 
     def output_board_layout(self, input_file="battleship.json", add_to_key="_in_book"):
         """
@@ -258,6 +259,11 @@ class battleship():
             # json.dump(json_file_+data, f)
             f.write(json_file_data)
         return json_file_data
+
+    @classmethod
+    def from_string(cls, input_coordines):
+        boat,letter,number,direction = split()
+        return cls((letter, number, direction), ship_type)
 
 
 # @staticmethod

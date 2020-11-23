@@ -460,75 +460,75 @@
     c:e5s
 
 //g6
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:d7e
+    s:h5s
+    d:d6n
+    b:d4s
+    c:e6s
 
 //g7
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:h1e
+    s:e8e
+    d:j3e
+    b:a1s
+    c:f5e
 
 //g8
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:j5e
+    s:b6e
+    d:h9n
+    b:g3s
+    c:i6e
 
 //g9
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:i6e
+    s:c2e
+    d:h5e
+    b:b1e
+    c:d3s
 
 //g10
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:b3s
+    s:f3s
+    d:d2e
+    b:e4e
+    c:i6e
 
 
 //h1
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:i8e
+    s:b3s
+    d:f3e
+    b:c6s
+    c:e10s
 
 //h2
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:e9e
+    s:f1e
+    d:e3e
+    b:a2e
+    c:d6s
 
 //h3
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:j2e
+    s:b7e
+    d:h6n
+    b:i7e
+    c:f4n
 
 //h4
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:d3s
+    s:i6e
+    d:b3e
+    b:d6e
+    c:f5s
 
 //h5
-    p:
-    s:
-    d:
-    b:
-    c:
+    p:f5s
+    s:g6e
+    d:d5e
+    b:j1e
+    c:j5e
 
 //h6
     p:
