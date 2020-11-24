@@ -1,18 +1,21 @@
 import re
-class BSD():
-   def __init__(self, input_file):
+from pprint import pprint
+
+
+class BSD:
+    def __init__(self, input_file="book_direction.txt"):
        self.input_file = input_file
 
-   def raw_to_json(self):
-        with open(self.input_file) as f:
-            file_data = f.readlines()
 
-   def gird_title(input_bsg_title):
+    def gird_title(input_bsg_title):
        """
        Returns a found bsg_title using regex else None
 
-       Paramiters:
-                    :input_bsg_title (str)
+       :parameter: input_bsg_title
+       :ptype: str
+
+       :return: bsg_title
+       :rtype: str
        """
        bsg_title = None
 
@@ -24,50 +27,34 @@ class BSD():
            bsg_title = bsg_result.group(1)
        except AttributeError:
            pass
+       return bsg_title
 
-       if bsg_title:
-            return bsg_title
-       else:
-           return None
-
-   def grid_directions(input_bsg_directions):
+    def grid_directions(input_bsg_directions):
        """Returns a found Episode number using regex else None
-               Paramiters:
-                       input_bsg_directions (str)
-               Returns:
-                       "Ep_##" (str) else: None
+       Paramiters:
+               input_bsg_directions (str)
+       Returns:
+               "Ep_##" (str) else: None
        """
-       input_bsg_directions = None
+       bsg_key = letter = number = direction = None
 
-       ep_regex = r''
-       ep_prog = re.compile(ep_regex)
-       ep_result = ep_prog.match(input_bsg_directions)
+       bsg_regex = r'\s{4}(\w):((\w)(\d\d?)(\w))'
+       bsg_prog = re.compile(bsg_regex)
+       bsg_result = bsg_prog.match(input_bsg_directions)
        try:
-           gr_four = ep_result.group(4)
-           gr_three = ep_result.group(3)
-           gr_six = ep_result.group(6)
+           bsg_key = bsg_result.group(1)
+
+           letter = bsg_result.group(3)
+           number = bsg_result.group(4)
+           direction = bsg_result.group(5)
        except AttributeError:
            pass
 
-       if gr_four or gr_three or gr_six:
-           if gr_four == None:
-               pass
-           else:
-               EP_State = ('Ep_%s' % (gr_four))
-           if gr_three == None:
-               pass
-           else:
-               EP_State = ('Ep_%s' % (gr_three))
-           if gr_six == None:
-               pass
-           else:
-               EP_State = ('Ep_%s' % (gr_six))
-       else:
-           EP_State = None
-       return EP_State
+       return bsg_key, letter, number, direction
 
-   def Input_anything(Input):
-       """Returns if the input is a TS. or EP. or neither and cleans it with gird_title() or grid_directions()
+    @staticmethod
+    def input_anything(Input):
+        """Returns if the input is a TS. or EP. or neither and cleans it with gird_title() or grid_directions()
                Paramiters:
                        Input (str)
                Returns:
@@ -76,46 +63,51 @@ class BSD():
                        if a TS or EP Returns Result:
                                Result of grid_directions() or gird_title() else None
        """
-       r_ep = BSD.grid_directions(Input)
-       r_ts = BSD.gird_title(Input)
-       if type(r_ep) == str:
-           State = 'EP'
-           return State, r_ep
-       elif type(r_ts) == str:
-           State = 'TS'
-           return State, r_ts
-       else:
-           return None, None
+        bsg_title = BSD.gird_title(Input)
+        bsg_directions = BSD.grid_directions(Input)
+        if type(bsg_title) == str:
+            State = 'bsg_title'
+            return State, bsg_title
+        elif bsg_directions[1] != None:
+            State = 'bsg_directions'
+            return State, bsg_directions
+        else:
+            return None, None
 
-       # def make_xml(bsg_list, file=None)
-
-   def CoreV2(self):
-        """This Function does the created naming of the files"""
-
-        exten = self.chapter_file_type
-        self.bsg_list = []
+    def raw_data_to_dict(self):
+        """
+        Converts battleship raw data to dict
+        :Example:
+            //a1
+                p:a1e
+                s:b1e
+                d:j10n
+                b:etc.
+                c:etc.
+            //a2
+                etc..
+        :return: self.bs.dict
+        :rtype: dict
+        """
+        bsg_list = []
+        self.bs_dict = dict()
         with open(self.input_file, 'r') as File:
             for line in File:
-                State, Temp = BSD.Input_anything(line)
-                if State == 'EP':
-                    if self.bsg_list > []:
-                        print(self.bsg_list)
-                        if exten == "txt":
-                            BSD.make_txt(self, output_file=ep_f)
-                        # elif exten == "xml":
-                        #     BSD.make_xml(self, output_file=ep_f)
-                        ep_f.close()
+                State, Temp = BSD.input_anything(line)
+                if State == 'bsg_title':
+                    grid_title = Temp
+                    self.bs_dict[grid_title] = dict()
+                elif State == 'bsg_directions':
+                    self.bs_dict[grid_title][Temp[0]] = tuple(Temp[1:])
+        return self.bs_dict
 
-                    print(f"Creating: {Temp}.{exten}")
-                    ep_f = open(f"{Temp}.{exten}", "w")
 
-                    self.bsg_list = list()
-                elif State == 'TS':
-                    self.bsg_list.append(Temp)
-                else:
-                    pass
-            print(self.bsg_list)
-            if exten == "txt":
-                BSD.make_txt(self, output_file=ep_f)
-            elif exten == "xml":
-                BSD.make_xml(self, output_file=ep_f)
+    def raw_to_json(self, output_json_file="book_directions.json"):
+        import json
+        with open(output_json_file, "w") as f:
+           self.raw_data_to_dict()
+           # f.write(json.dumps(self.bs_dict, indent=2))
+           f.write(json.dumps(self.bs_dict))
+
+b1 = BSD()
+b1.raw_to_json()
