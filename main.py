@@ -4,24 +4,21 @@ import os
 
 class battleship():
     a_to_j = ("a", "b", "c", "d", "e", "g", "h", "i", "j")
+    rows = 10
 
     def __init__(self, battleship_grid=None):
         """
         A Battleship grid is created
         :param battleship_grid:
         """
+
         self.battleship_grid = battleship_grid
         if self.battleship_grid == None:
-            self.battleship_grid = {
-                "a": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "b": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "c": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "d": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "e": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "g": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "h": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "i": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                "j": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+            self.battleship_grid = {}
+
+            for letter in battleship.a_to_j:
+                self.battleship_grid[letter] = [0]*battleship.rows
+
     class add_ships():
         def add_patrol_boat(self):
 
@@ -308,7 +305,8 @@ def input_game() -> object:
 # Direction = "s"
 # Ship_type = "p"
 
-# b1 = battleship()
+b1 = battleship()
+pprint.pprint(b1.battleship_grid)
 # b1.add_ships(coordinates=(Letter,  Number, Direction), ship_type=Ship_type)
 # b1.add_ships(coordinates=("a", "1", "e"), ship_type="p")
 # b1.add_ships(coordinates=("b", "1", "e"), ship_type="s")
@@ -316,21 +314,6 @@ def input_game() -> object:
 # b1.add_ships(coordinates=("d", "1", "e"), ship_type="b")
 # b1.add_ships(coordinates=("e", "1", "e"), ship_type="c")
 
-# p = b1.output_board_layout()
-
-# print("reading file...\n")
 # read_board_layout()
 
-input_game()
-
-# print("output board...\n")
-# pprint.pprint(p)
-
-# "b":[0,0,0,0,0,0,0,0,0,0],
-# "c":[0,0,0,0,0,0,0,0,0,0],
-# "d":[0,0,0,0,0,0,0,0,0,0],
-# "e":[0,0,0,0,0,0,0,0,0,0],
-# "g":[0,0,0,0,0,0,0,0,0,0],
-# "h":[0,0,0,0,0,0,0,0,0,0],
-# "i":[0,0,0,0,0,0,0,0,0,0],
-# "j":[0,0,0,0,0,0,0,0,0,0]}
+# input_game()
