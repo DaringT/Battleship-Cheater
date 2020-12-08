@@ -79,7 +79,7 @@ class BSD:
 
     def raw_data_to_dict(self):
         """
-        Converts battleship raw data to dict
+        Converts Battleship raw data to dict
         :Example:
             //a1
                 p:a1e
@@ -114,6 +114,11 @@ class BSD:
             self.raw_data_to_dict()
             f.write(json.dumps(self.bs_dict, indent=2))
 
+    def driections_to_grid_data(self):
+        self.raw_data_to_dict()
+        for key in self.bs_dict.keys():
+            print(key)
+            for ship_type, values in self.bs_dict[key].items():
+                letter, number, direction = values
 
-b1 = BSD()
-b1.raw_to_json()
+                print(f"ship type: {ship_type}  letter: {letter}  Number: {number}  direction: {direction}")
