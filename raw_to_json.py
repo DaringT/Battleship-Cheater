@@ -113,12 +113,3 @@ class BSD:
         with open(output_json_file, "w") as f:
             self.raw_data_to_dict()
             f.write(json.dumps(self.bs_dict, indent=2))
-
-    def driections_to_grid_data(self):
-        self.raw_data_to_dict()
-        for key in self.bs_dict.keys():
-            print(key)
-            for ship_type, values in self.bs_dict[key].items():
-                letter, number, direction = values
-
-                print(f"ship type: {ship_type}  letter: {letter}  Number: {number}  direction: {direction}")

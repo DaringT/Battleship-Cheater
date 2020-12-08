@@ -18,21 +18,6 @@ class Battleship():
 			for letter in Battleship.a_to_j:
 				self.battleship_grid[letter] = [0] * Battleship.rows
 
-	@classmethod
-	def from_grid_directions(cls, dir_dict):
-		"""Generates an instance from a direction data"""
-		b1 = Battleship()
-		for key in dir_dict.keys():
-			print(key)
-			for ship_type, coordinates in dir_dict[key].items():
-				print(f"ship type: {ship_type}  coordinates: {coordinates}")
-				# print(f"ship type: {ship_type}  letter: {coordinates[0]}  Number: {coordinates[2]}  direction: {coordinates[3]}")
-				# bsg.GridGeneration.add_ships.add_ships(coordinates=coordinates, ship_type = ship_type)
-				b1.add_ships(coordinates=coordinates, ship_type=ship_type)
-		return cls(b1.battleship_grid)
-
-
-
 	def add_ships(self, coordinates, ship_type):
 		"""
 			add ships to the Battleship grid from one function
@@ -45,7 +30,11 @@ class Battleship():
 
 		# print(f"letter: {self.letter} number:{self.number} direction:{self.direction} ship type: {ship_type}")
 		self.number = int(self.number)-1
-		self.letters_index = Battleship.a_to_j.index(self.letter)
+		print(self.letter)
+		try:
+			self.letters_index = Battleship.a_to_j.index(self.letter)
+		except ValueError:
+			return self.battleship_grid
 
 		if ship_type=="p":
 			return self._patrol_boat()
@@ -295,8 +284,27 @@ class Battleship():
 
 	def display_total_ship_heat_grid(self):
 		'''subclass for displaying for wich ship is most likely to be where in a (Heat map)'''
+		pass
 
+	@classmethod
+	def from_grid_directions(cls, dir_dict):
+		"""Generates an instance from a direction data"""
+		b1 = Battleship()
+		for key in dir_dict.keys():
+			print(f"Grid_name: {key}")
+			for ship_type, coordinates in dir_dict[key].items():
+				print(f"ship type: {ship_type}  letter: {coordinates[0]}  Number: {coordinates[1]}  direction: {coordinates[2]}")
+				b1.add_ships(coordinates=coordinates, ship_type=ship_type)
+		return cls(b1.battleship_grid)
 
+	def grid_directions_to_bs_grid(self, dir_dict):
+		"""Generates an instance from a direction data"""
+
+		# for key in dir_dict.keys():
+		print(f"Grid_name: {key}")
+		for ship_type, coordinates in dir_dict.items():
+			self.add_ships(coordinates=coordinates, ship_type=ship_type)
+		return self.battleship_grid
 
 
 
@@ -337,27 +345,27 @@ class Battleship():
 			f.write(json_file_data)
 		return json_file_data
 
-	@staticmethod
-	def read_board_layout(input_file="Battleship.json"):
-		"""
-		reads json file
-		:param input_file:
-		"""
-		with open(input_file, "r") as f:
-			pprint(f.readlines())
-
 
 if __name__ == '__main__':
-	ts = {"a1": {"p": ["e","5","e"],
-			 "s": ["b","4","e"],
-			 "d": ["i","2","e"],
-			 "b": ["e","5","e"],
-			 "c": ["g","4","e"]}}
+	ts={"a1":{"p": ["a","1","e"],
+			  "s": ["b","4","e"],
+			  "d": ["i","2","e"],
+			  "b": ["e","5","e"],
+			  "c": ["g","4","e"]}}
 
-	# b1 = Battleship()
-	b1 = Battleship.from_grid_directions(ts)
+	# b1 = Battleship.from_grid_directions(ts)
+	#
 
-	pprint(b1)
+def output_all_grids()
+	book_dirs = BSD(input_file="book_direction.txt")
+	book_dir_dict = book_dirs.raw_data_to_dict()
+	for key in book_dir_dict:
+		b1 = Battleship()
+		print(key)
+		# pprint(book_dir_dict[key])
+		b1.grid_directions_to_bs_grid(book_dir_dict[key])
+		pprint(b1.battleship_grid)
+		print("-"*40,"\n")
 
 	# b1.Battleship.DisplayGrid.make_heat_graft()
 	# Battleship.GridGeneration.from_grid_directions(dir_dict=ts)
