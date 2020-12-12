@@ -3,8 +3,15 @@ from raw_to_json import BSD
 from pprint import pprint
 import os
 
+print("importing seaborn...")
+import seaborn as sb
+print("seaborn is imported")
+from matplotlib import pyplot as plt
+
 class Battleship():
 	a_to_j = ("a", "b", "c", "d", "e","f", "g", "h", "i", "j")
+	ship_type_dict = {"p":1,"s":2,"d":3,"b":4,"c":5}
+
 	rows = 10
 
 	def __init__(self, battleship_grid=None):
@@ -229,7 +236,6 @@ class Battleship():
 			print("You can not add a aircraft carrier there!")
 			return self.battleship_grid
 
-
 	def input_game(self) -> object:
 		'''adds ships to the Battleship board'''
 		b1 = Battleship()
@@ -258,38 +264,97 @@ class Battleship():
 		# subclass for displaying if a spot is mostly likely a ship into a (heat map)
 		pass
 
-	def make_heat_graft(input_grid):
-		print("importing seaborn...")
-		import seaborn as sb
-		print("seaborn is imported")
-		from matplotlib import pyplot as plt
+	@staticmethod
+	def make_heat_graft(input_grid, output_file="Auto", map_color="blue", dark_to_light=True):
+		# print("importing seaborn...")
+		# import seaborn as sb
+		# print("seaborn is imported")
+		# from matplotlib import pyplot as plt
 
-		# test_array = np.array([[1, 2], [3, 4]])
-		# hm = sb.heatmap(input_grid)
+
+
+
+		if map_color == "blue":
+			if dark_to_light:
+				map_color = "Blues"
+			else:
+				map_color = "Blues_r"
+		elif map_color == "red":
+			if dark_to_light:
+				map_color = "rocket_r"
+			else:
+				map_color = "rocket"
+
 		sb.heatmap(input_grid,
-				   cmap='Blues',
 				   annot=True,
 				   yticklabels=[letter.upper() for letter in Battleship.a_to_j],
-				   xticklabels=[num for num in range(1, 11)])
+				   xticklabels=[num for num in range(1, 11)],
+		           cmap=map_color,
+		           # linewidth=1,
+		           linecolor='lightgray')
 
 		plt.yticks(rotation=0)
-		plt.tick_params(
-				which='both',
-				bottom=False,
-				left=False,
-				labelbottom=False,
-				labeltop=True)
-		plt.tight_layout()
+		plt.tick_params(which='both',
+						bottom=False,
+						left=False,
+						labelbottom=False,
+						labeltop=True)
 
+		if output_file == "Auto":
+			from datetime import datetime
+			dt = datetime.today()
+			output_file = f"bs_heatmap_{str(dt.month)}-{str(dt.day)}-{str(dt.year)[2:]}_{str(dt.hour)}:{str(dt.minute)}"
+			plt.savefig(output_file + ".png")
+		elif output_file:
+			plt.savefig(output_file)
+
+		plt.tight_layout()
+		plt.savefig(output_file)
 		plt.show()
 
-	def display_specific_ship_heat_grid(self):
+	@staticmethod
+	def display_specific_ship_heat_grid(ship_type, input_file="book_direction.txt"):
 		# subclass for displaying for with ship is most likely to be where in a (Heat map)
-		pass
+		book_dirs = BSD(input_file)
+		book_dir_dicts = book_dirs.raw_data_to_dict()
+		b2 = Battleship()
+		output_bs_grid = Battleship()
 
-	def display_total_ship_heat_grid(self):
+		for book_dir_dict in book_dir_dicts.values():
+			b2.grid_directions_to_bs_grid(book_dir_dict)
+			bs_dict = b2.battleship_grid
+
+			for letter in bs_dict.keys():
+				for num in range(len(bs_dict[letter])):
+					if bs_dict[letter][num] == Battleship.ship_type_dict[ship_type]:
+						bs_dict[letter][num] = 1
+					else:
+						bs_dict[letter][num] = 0
+
+
+			output_bs_grid = b2 + output_bs_grid
+			b2 = Battleship()
+		return Battleship.battleship_dict_to_heatmap_data(output_bs_grid.battleship_grid)
+
+	def display_total_ship_heat_grid(input_file="book_direction.txt"):
 		'''subclass for displaying for with ship is most likely to be where in a (Heat map)'''
-		pass
+		book_dirs = BSD(input_file)
+		book_dir_dicts = book_dirs.raw_data_to_dict()
+		b2 = Battleship()
+		output_bs_grid = Battleship()
+
+		for book_dir_dict in book_dir_dicts.values():
+			b2.grid_directions_to_bs_grid(book_dir_dict)
+			bs_dict = b2.battleship_grid
+
+			for letter in bs_dict.keys():
+				for num in range(len(bs_dict[letter])):
+					if bool(bs_dict[letter][num]):
+						bs_dict[letter][num] = 1
+
+			output_bs_grid = b2 + output_bs_grid
+			b2 = Battleship()
+		return Battleship.battleship_dict_to_heatmap_data(output_bs_grid.battleship_grid)
 
 	@classmethod
 	def from_grid_directions(cls, dir_dict):
@@ -308,6 +373,7 @@ class Battleship():
 			self.add_ships(coordinates=coordinates, ship_type=ship_type)
 		return self.battleship_grid
 
+	@staticmethod
 	def battleship_dict_to_heatmap_data(battleship_grid):
 		heatmap_data = []
 		for grid_list in battleship_grid.values():
@@ -351,26 +417,6 @@ class Battleship():
 
 
 
-
-def output_all_grids(input_file="book_direction.txt"):
-	book_dirs = BSD(input_file)
-	book_dir_dicts = book_dirs.raw_data_to_dict()
-	b2 = Battleship()
-	output_bs_grid = Battleship()
-
-	for book_dir_dict in book_dir_dicts.values():
-		b2.grid_directions_to_bs_grid(book_dir_dict)
-		bs_dict = b2.battleship_grid
-
-		for letter in bs_dict.keys():
-			for num in range(len(bs_dict[letter])):
-				if bool(bs_dict[letter][num]):
-					bs_dict[letter][num] = 1
-
-		output_bs_grid = b2 + output_bs_grid
-		b2 = Battleship()
-	return output_bs_grid.battleship_grid
-
 if __name__ == "__main__":
 	ts={"a1":{"p": ["a","1","e"],
 			  "s": ["b","4","e"],
@@ -400,7 +446,18 @@ if __name__ == "__main__":
 	           'i':[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	           'j':[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
 
-	processed_bs_grid = output_all_grids()
-	heatmap_data = Battleship.battleship_dict_to_heatmap_data(processed_bs_grid)
-	Battleship.make_heat_graft(heatmap_data)
+	p_heatmap_data = Battleship.display_specific_ship_heat_grid(ship_type="p")
+	s_heatmap_data = Battleship.display_specific_ship_heat_grid(ship_type="s")
+	d_heatmap_data = Battleship.display_specific_ship_heat_grid(ship_type="d")
+	b_heatmap_data = Battleship.display_specific_ship_heat_grid(ship_type="b")
+	c_heatmap_data = Battleship.display_specific_ship_heat_grid(ship_type="c")
+	total_heatmap_data = Battleship.display_total_ship_heat_grid()
+
+
+	Battleship.make_heat_graft(p_heatmap_data, output_file="01_p_heatmap_data.png")
+	Battleship.make_heat_graft(s_heatmap_data, output_file="01_s_heatmap_data.png")
+	Battleship.make_heat_graft(d_heatmap_data, output_file="01_d_heatmap_data.png")
+	Battleship.make_heat_graft(b_heatmap_data, output_file="01_b_heatmap_data.png")
+	Battleship.make_heat_graft(c_heatmap_data, output_file="01_c_heatmap_data.png")
+	Battleship.make_heat_graft(total_heatmap_data, output_file="01_total_heatmap_data.png")
 
