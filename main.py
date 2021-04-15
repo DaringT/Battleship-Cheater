@@ -10,9 +10,14 @@ print("seaborn is imported")
 from matplotlib import pyplot as plt
 
 
-class Battleship():
+class Battleship:
 	a_to_j = ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
-	ship_type_dict = {"p":1, "s":2, "d":3, "b":4, "c":5}
+	ship_type_dict = {"p": 1, "s": 2, "d": 3, "b": 4, "c": 5}
+	ship_abbreviations = {"p":"patrol boat",
+	                      "s":"submarine",
+	                      "d":"destroyer",
+	                      "b":"battleship",
+	                      "c":"aircraft carrier"}
 	rows = 10
 
 	def __init__(self, battleship_grid=None):
@@ -33,7 +38,7 @@ class Battleship():
 					index]
 		return Battleship(self.battleship_grid)
 
-	class add_ships:
+	class Add_Ships:
 		def add_ships(self, coordinates, ship_type):
 			"""
 				add ships to the Battleship grid from one function
@@ -51,20 +56,20 @@ class Battleship():
 			except ValueError:
 				return self.battleship_grid
 
-			if ship_type=="p":
-				return Battleship.add_ships._patrol_boat(self)
+			if ship_type == "p":
+				return Battleship.Add_Ships._patrol_boat(self)
 
-			elif ship_type=="s":
-				return Battleship.add_ships._add_submairie(self)
+			elif ship_type == "s":
+				return Battleship.Add_Ships._add_submarine(self)
 
-			elif ship_type=="d":
-				return Battleship.add_ships._add_destroyer(self)
+			elif ship_type == "d":
+				return Battleship.Add_Ships._add_destroyer(self)
 
-			elif ship_type=="b":
-				return Battleship.add_ships._add_battleship(self)
+			elif ship_type == "b":
+				return Battleship.Add_Ships._add_battleship(self)
 
-			elif ship_type=="c":
-				return Battleship.add_ships._add_aircraft_carrier(self)
+			elif ship_type == "c":
+				return Battleship.Add_Ships._add_aircraft_carrier(self)
 
 		def _patrol_boat(self):
 
@@ -73,21 +78,21 @@ class Battleship():
 				:return: battleship_grid
 				"""
 			try:
-				if self.direction=="s":
+				if self.direction == "s":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+1]][self.number] = 1
 					self.battleship_grid[self.letter][self.number] = 1
 					return self.battleship_grid
 
-				elif self.direction=="n":
+				elif self.direction == "n":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-1]][self.number] = 1
 					self.battleship_grid[self.letter][self.number] = 1
 					return self.battleship_grid
 
-				elif self.direction=="e":
+				elif self.direction == "e":
 					self.battleship_grid[self.letter][self.number+1] = 1
 					self.battleship_grid[self.letter][self.number] = 1
 					return self.battleship_grid
-				elif self.direction=="w":
+				elif self.direction == "w":
 					self.battleship_grid[self.letter][self.number-1] = 1
 					self.battleship_grid[self.letter][self.number] = 1
 					return self.battleship_grid
@@ -95,34 +100,34 @@ class Battleship():
 				print(e)
 				print("\nYou cannot add a patrol boat there.")
 
-		def _add_submairie(self):
+		def _add_submarine(self):
 			"""
-				Adds a submairie as int 2 in BS grid
+				Adds a submarine as int 2 in BS grid
 				:return: battleship_grid
 				"""
 			try:
-				if self.direction=="s":
+				if self.direction == "s":
 					# This is what happens you go South
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+1]][self.number] = 2
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+2]][self.number] = 2
 					self.battleship_grid[self.letter][self.number] = 2
 					return self.battleship_grid
 
-				elif self.direction=="n":
+				elif self.direction == "n":
 					# This is what happens you go North
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-1]][self.number] = 2
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-2]][self.number] = 2
 					self.battleship_grid[self.letter][self.number] = 2
 					return self.battleship_grid
 
-				elif self.direction=="e":
+				elif self.direction == "e":
 					# This is what happens you go East
 					self.battleship_grid[self.letter][self.number+1] = 2
 					self.battleship_grid[self.letter][self.number+2] = 2
 					self.battleship_grid[self.letter][self.number] = 2
 					return self.battleship_grid
 
-				elif self.direction=="w":
+				elif self.direction == "w":
 					# This is what happens you go West
 					self.battleship_grid[self.letter][self.number-1] = 2
 					self.battleship_grid[self.letter][self.number-2] = 2
@@ -130,7 +135,7 @@ class Battleship():
 					return self.battleship_grid
 			except IndexError as e:
 				print(e)
-				print("You cann't add a Submairie there.")
+				print("You can't add a submarine there.")
 
 		def _add_destroyer(self):
 			"""
@@ -138,23 +143,23 @@ class Battleship():
 				:return: battleship_grid
 				"""
 			try:
-				if self.direction=="s":
+				if self.direction == "s":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+2]][self.number] = 3
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+1]][self.number] = 3
 					self.battleship_grid[self.letter][self.number] = 3
 					return self.battleship_grid
-				elif self.direction=="n":
+				elif self.direction == "n":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-2]][self.number] = 3
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-1]][self.number] = 3
 					self.battleship_grid[self.letter][self.number] = 3
 					return self.battleship_grid
-				elif self.direction=="w":
+				elif self.direction == "w":
 					self.battleship_grid[self.letter][self.number-2] = 3
 					self.battleship_grid[self.letter][self.number-1] = 3
 					self.battleship_grid[self.letter][self.number] = 3
 					return self.battleship_grid
 
-				elif self.direction=="e":
+				elif self.direction == "e":
 					self.battleship_grid[self.letter][self.number+2] = 3
 					self.battleship_grid[self.letter][self.number+1] = 3
 					self.battleship_grid[self.letter][self.number] = 3
@@ -169,28 +174,28 @@ class Battleship():
 				:return: battleship_grid
 				"""
 			try:
-				if self.direction=="n":
+				if self.direction == "n":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-1]][self.number] = 4
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-2]][self.number] = 4
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-3]][self.number] = 4
 					self.battleship_grid[self.letter][self.number] = 4
 					return self.battleship_grid
 
-				if self.direction=="s":
+				if self.direction == "s":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+1]][self.number] = 4
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+2]][self.number] = 4
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+3]][self.number] = 4
 					self.battleship_grid[self.letter][self.number] = 4
 					return self.battleship_grid
 
-				elif self.direction=="e":
+				elif self.direction == "e":
 					self.battleship_grid[self.letter][self.number+1] = 4
 					self.battleship_grid[self.letter][self.number+2] = 4
 					self.battleship_grid[self.letter][self.number+3] = 4
 					self.battleship_grid[self.letter][self.number] = 4
 					return self.battleship_grid
 
-				elif self.direction=="w":
+				elif self.direction == "w":
 					self.battleship_grid[self.letter][self.number-1] = 4
 					self.battleship_grid[self.letter][self.number-2] = 4
 					self.battleship_grid[self.letter][self.number-3] = 4
@@ -205,7 +210,7 @@ class Battleship():
 				:return: battleship_grid
 				"""
 			try:
-				if self.direction=="n":
+				if self.direction == "n":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-1]][self.number] = 5
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-2]][self.number] = 5
 					self.battleship_grid[Battleship.a_to_j[self.letters_index-3]][self.number] = 5
@@ -213,7 +218,7 @@ class Battleship():
 					self.battleship_grid[self.letter][self.number] = 5
 					return self.battleship_grid
 
-				elif self.direction=="s":
+				elif self.direction == "s":
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+1]][self.number] = 5
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+2]][self.number] = 5
 					self.battleship_grid[Battleship.a_to_j[self.letters_index+3]][self.number] = 5
@@ -221,7 +226,7 @@ class Battleship():
 					self.battleship_grid[self.letter][self.number] = 5
 					return self.battleship_grid
 
-				elif self.direction=="e":
+				elif self.direction == "e":
 					self.battleship_grid[self.letter][self.number+1] = 5
 					self.battleship_grid[self.letter][self.number+2] = 5
 					self.battleship_grid[self.letter][self.number+3] = 5
@@ -229,7 +234,7 @@ class Battleship():
 					self.battleship_grid[self.letter][self.number] = 5
 					return self.battleship_grid
 
-				elif self.direction=="w":
+				elif self.direction == "w":
 					self.battleship_grid[self.letter][self.number-1] = 5
 					self.battleship_grid[self.letter][self.number-2] = 5
 					self.battleship_grid[self.letter][self.number-3] = 5
@@ -244,8 +249,8 @@ class Battleship():
 		b1 = Battleship()
 		while True:
 			ship_type = input("input Ship Type --> ")
-			if ship_type=="exit":
-				exit()
+			if ship_type == "exit":
+				return
 			else:
 				letter = input("Add Letter --> ")
 				number = input("Add Number --> ")
@@ -253,12 +258,12 @@ class Battleship():
 
 				print(f"letter: {letter}\tnumber:{number}\tdirection: {direction}\tinput: {ship_type}")
 			out_to_file = input("Output to file? --> ")
-			if out_to_file=="y":
-				print("outputing to file...")
+			if out_to_file == "y":
+				print("Outputting to file...")
 				b1.output_battleship_grid_to_json_file()
 				b1 = Battleship()
-			elif out_to_file=="n":
-				b1.add_ships.add_ships(coordinates=(letter, number, direction), ship_type=ship_type)
+			elif out_to_file == "n":
+				b1.Add_Ships.add_ships(self,coordinates=(letter, number, direction), ship_type=ship_type)
 
 	@classmethod
 	def from_grid_directions(cls, dir_dict) -> object:
@@ -273,7 +278,7 @@ class Battleship():
 			# print(f"Grid_name: {key}")
 			for ship_type, coordinates in dir_dict[key].items():
 				# print(f"ship type: {ship_type}  letter: {coordinates[0]}  Number: {coordinates[1]}  direction: {coordinates[2]}")
-				b1.add_ships.add_ships(coordinates=coordinates, ship_type=ship_type)
+				b1.Add_Ships.add_ships(coordinates=coordinates, ship_type=ship_type)
 		return cls(b1.battleship_grid)
 
 	def grid_directions_to_bs_grid(self, dir_dict):
@@ -284,7 +289,7 @@ class Battleship():
 		:rtype dict:
 		"""
 		for ship_type, coordinates in dir_dict.items():
-			Battleship.add_ships.add_ships(self, coordinates=coordinates, ship_type=ship_type)
+			Battleship.Add_Ships.add_ships(self, coordinates=coordinates, ship_type=ship_type)
 		return self.battleship_grid
 
 	@staticmethod
@@ -359,7 +364,7 @@ class DisplayGrid:
 
 			for letter in bs_dict.keys():
 				for num in range(len(bs_dict[letter])):
-					if bs_dict[letter][num]==Battleship.ship_type_dict[ship_type]:
+					if bs_dict[letter][num] == Battleship.ship_type_dict[ship_type]:
 						bs_dict[letter][num] = 1
 					else:
 						bs_dict[letter][num] = 0
@@ -393,7 +398,7 @@ class DisplayGrid:
 		return Battleship.battleship_dict_to_heatmap_data(output_bs_grid.battleship_grid)
 
 	@staticmethod
-	def make_heat_graft(input_grid, output_file="Auto", map_color="blue", dark_to_light=True):
+	def make_heat_graft(input_grid, output_file="Auto", map_color="blue", dark_to_light=True, input_title="title"):
 		'''Make a heatmap
 
 		:param input_grid: heatmap grid
@@ -406,12 +411,12 @@ class DisplayGrid:
 		:type dark_to_light:
 		'''
 
-		if map_color=="blue":
+		if map_color == "blue":
 			if dark_to_light:
 				map_color = "Blues"
 			else:
 				map_color = "Blues_r"
-		elif map_color=="red":
+		elif map_color == "red":
 			if dark_to_light:
 				map_color = "rocket_r"
 			else:
@@ -432,7 +437,10 @@ class DisplayGrid:
 		                labelbottom=False,
 		                labeltop=True)
 
-		if output_file=="Auto":
+		plt.title(input_title)
+		plt.tight_layout()
+
+		if output_file == "Auto":
 			from datetime import datetime
 			dt = datetime.today()
 			output_file = f"bs_heatmap_{str(dt.month)}-{str(dt.day)}-{str(dt.year)[2:]}_{str(dt.hour)}:{str(dt.minute)}"
@@ -440,22 +448,41 @@ class DisplayGrid:
 		elif output_file:
 			plt.savefig(output_file)
 
-		plt.tight_layout()
-		plt.savefig(output_file)
 		plt.show()
 
 
+def merging_heatmaps(image_files_list, output_image='image.png'):
+	import numpy as np
+	import cv2
+	if len(image_files_list)!=6:
+		raise ValueError("image_files_list should only have 6 items")
 
-if __name__=="__main__":
-	display_ship_heatmap = lambda ship_type, output_file:DisplayGrid.make_heat_graft(
-			DisplayGrid.display_specific_ship_heat_grid(ship_type), output_file)
+	file = iter(image_files_list)
+	image_1 = cv2.imread(next(file))
+	image_2 = cv2.imread(next(file))
+	image_3 = cv2.imread(next(file))
+	image_4 = cv2.imread(next(file))
+	image_5 = cv2.imread(next(file))
+	image_6 = cv2.imread(next(file))
+	top_image = np.concatenate((image_1, image_2, image_3), axis=0)
+	bottom_image = np.concatenate((image_4, image_5, image_6), axis=0)
+	final = np.concatenate((top_image, bottom_image), axis=1)
+	cv2.imwrite(output_image, final)
 
-	display_all_ships_heatmap = lambda ship_type, output_file:DisplayGrid.make_heat_graft(
-			DisplayGrid.display_total_ship_heat_grid(), output_file)
 
-	display_ship_heatmap(ship_type="p", output_file="01_p_heatmap_data.png")
-	display_ship_heatmap(ship_type="s", output_file="01_s_heatmap_data.png")
-	display_ship_heatmap(ship_type="d", output_file="01_d_heatmap_data.png")
-	display_ship_heatmap(ship_type="b", output_file="01_b_heatmap_data.png")
-	display_ship_heatmap(ship_type="c", output_file="01_c_heatmap_data.png")
-	display_all_ships_heatmap("01_total_heatmap_data.png")
+display_ship_heatmap = lambda ship_type, output_file=None:DisplayGrid.make_heat_graft(
+		DisplayGrid.display_specific_ship_heat_grid(ship_type),
+		output_file, input_title=Battleship.ship_abbreviations[ship_type].title())
+
+display_all_ships_heatmap = lambda output_file=None:DisplayGrid.make_heat_graft(
+		DisplayGrid.display_total_ship_heat_grid(), output_file, input_title="All Ships")
+
+if __name__ == "__main__":
+	display_ship_heatmap(ship_type="p")# , output_file="01_p_heatmap_data.png")
+	display_ship_heatmap(ship_type="s")# , output_file="02_s_heatmap_data.png")
+	display_ship_heatmap(ship_type="d")# , output_file="03_d_heatmap_data.png")
+	display_ship_heatmap(ship_type="b")# , output_file="04_b_heatmap_data.png")
+	display_ship_heatmap(ship_type="c")# , output_file="05_c_heatmap_data.png")
+	# display_all_ships_heatmap("00_total_heatmap_data.png")
+	# merging_heatmaps(["01_p_heatmap_data.png", "01_s_heatmap_data.png", "01_d_heatmap_data.png",
+	#                   "01_b_heatmap_data.png", "01_c_heatmap_data.png", "01_total_heatmap_data.png"])
